@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A83A92A42A8351A000EF0154 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A92A32A8351A000EF0154 /* ImagesListCell.swift */; };
 		A8BFC7AE2A778054008079AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7AD2A778054008079AE /* AppDelegate.swift */; };
 		A8BFC7B02A778054008079AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7AF2A778054008079AE /* SceneDelegate.swift */; };
-		A8BFC7B22A778054008079AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7B12A778054008079AE /* ViewController.swift */; };
+		A8BFC7B22A778054008079AE /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7B12A778054008079AE /* ImagesListViewController.swift */; };
 		A8BFC7B52A778054008079AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BFC7B32A778054008079AE /* Main.storyboard */; };
 		A8BFC7B72A778056008079AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BFC7B62A778056008079AE /* Assets.xcassets */; };
 		A8BFC7BA2A778056008079AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8BFC7B82A778056008079AE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A83A92A32A8351A000EF0154 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		A8BFC7AA2A778054008079AE /* PictureShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BFC7AD2A778054008079AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8BFC7AF2A778054008079AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A8BFC7B12A778054008079AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8BFC7B12A778054008079AE /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		A8BFC7B42A778054008079AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8BFC7B62A778056008079AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8BFC7B92A778056008079AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A83A92A52A8351F900EF0154 /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				A83A92A32A8351A000EF0154 /* ImagesListCell.swift */,
+				A8BFC7B12A778054008079AE /* ImagesListViewController.swift */,
+			);
+			path = ImagesList;
+			sourceTree = "<group>";
+		};
 		A8BFC7A12A778054008079AE = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +69,7 @@
 			children = (
 				A8BFC7AD2A778054008079AE /* AppDelegate.swift */,
 				A8BFC7AF2A778054008079AE /* SceneDelegate.swift */,
-				A8BFC7B12A778054008079AE /* ViewController.swift */,
+				A83A92A52A8351F900EF0154 /* ImagesList */,
 				A8BFC7B32A778054008079AE /* Main.storyboard */,
 				A8BFC7B62A778056008079AE /* Assets.xcassets */,
 				A8BFC7B82A778056008079AE /* LaunchScreen.storyboard */,
@@ -138,7 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8BFC7B22A778054008079AE /* ViewController.swift in Sources */,
+				A8BFC7B22A778054008079AE /* ImagesListViewController.swift in Sources */,
+				A83A92A42A8351A000EF0154 /* ImagesListCell.swift in Sources */,
 				A8BFC7AE2A778054008079AE /* AppDelegate.swift in Sources */,
 				A8BFC7B02A778054008079AE /* SceneDelegate.swift in Sources */,
 			);
@@ -304,7 +316,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -335,7 +347,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
