@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: UIViewController
 
-class ImagesListViewController: UIViewController {
+final class ImagesListViewController: UIViewController {
     
     /// Makes the content of the status bar light
     override var preferredStatusBarStyle: UIStatusBarStyle {
