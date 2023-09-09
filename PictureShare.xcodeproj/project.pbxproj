@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82DA5C62AA99337003C6C64 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82DA5C52AA99337003C6C64 /* SingleImageViewController.swift */; };
 		A83A92A42A8351A000EF0154 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83A92A32A8351A000EF0154 /* ImagesListCell.swift */; };
+		A881A04C2AA5255200B4E06A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C66FA92AA513660004259C /* ProfileViewController.swift */; };
 		A8BFC7AE2A778054008079AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7AD2A778054008079AE /* AppDelegate.swift */; };
 		A8BFC7B02A778054008079AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7AF2A778054008079AE /* SceneDelegate.swift */; };
 		A8BFC7B22A778054008079AE /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFC7B12A778054008079AE /* ImagesListViewController.swift */; };
@@ -17,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82DA5C52AA99337003C6C64 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		A83A92A32A8351A000EF0154 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		A8BFC7AA2A778054008079AE /* PictureShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BFC7AD2A778054008079AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		A8BFC7B62A778056008079AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8BFC7B92A778056008079AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8BFC7BB2A778056008079AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C66FA92AA513660004259C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A82DA5C42AA98E60003C6C64 /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				A82DA5C52AA99337003C6C64 /* SingleImageViewController.swift */,
+			);
+			path = SingleImage;
+			sourceTree = "<group>";
+		};
 		A83A92A52A8351F900EF0154 /* ImagesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +58,14 @@
 				A8BFC7B12A778054008079AE /* ImagesListViewController.swift */,
 			);
 			path = ImagesList;
+			sourceTree = "<group>";
+		};
+		A881A04B2AA5248800B4E06A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A8C66FA92AA513660004259C /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A8BFC7A12A778054008079AE = {
@@ -69,6 +89,8 @@
 			children = (
 				A8BFC7AD2A778054008079AE /* AppDelegate.swift */,
 				A8BFC7AF2A778054008079AE /* SceneDelegate.swift */,
+				A82DA5C42AA98E60003C6C64 /* SingleImage */,
+				A881A04B2AA5248800B4E06A /* Profile */,
 				A83A92A52A8351F900EF0154 /* ImagesList */,
 				A8BFC7B32A778054008079AE /* Main.storyboard */,
 				A8BFC7B62A778056008079AE /* Assets.xcassets */,
@@ -151,6 +173,8 @@
 			files = (
 				A8BFC7B22A778054008079AE /* ImagesListViewController.swift in Sources */,
 				A83A92A42A8351A000EF0154 /* ImagesListCell.swift in Sources */,
+				A881A04C2AA5255200B4E06A /* ProfileViewController.swift in Sources */,
+				A82DA5C62AA99337003C6C64 /* SingleImageViewController.swift in Sources */,
 				A8BFC7AE2A778054008079AE /* AppDelegate.swift in Sources */,
 				A8BFC7B02A778054008079AE /* SceneDelegate.swift in Sources */,
 			);
