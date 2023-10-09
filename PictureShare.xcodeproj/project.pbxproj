@@ -89,9 +89,9 @@
 			children = (
 				A8BFC7AD2A778054008079AE /* AppDelegate.swift */,
 				A8BFC7AF2A778054008079AE /* SceneDelegate.swift */,
-				A82DA5C42AA98E60003C6C64 /* SingleImage */,
 				A881A04B2AA5248800B4E06A /* Profile */,
 				A83A92A52A8351F900EF0154 /* ImagesList */,
+				A82DA5C42AA98E60003C6C64 /* SingleImage */,
 				A8BFC7B32A778054008079AE /* Main.storyboard */,
 				A8BFC7B62A778056008079AE /* Assets.xcassets */,
 				A8BFC7B82A778056008079AE /* LaunchScreen.storyboard */,
@@ -128,7 +128,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					A8BFC7A92A778054008079AE = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -238,6 +238,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -298,6 +299,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
