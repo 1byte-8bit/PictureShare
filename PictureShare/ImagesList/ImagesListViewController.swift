@@ -31,7 +31,6 @@ final class ImagesListViewController: UIViewController {
             bottom: 12,
             right: 0
         )
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,7 +58,7 @@ final class ImagesListViewController: UIViewController {
 
 extension ImagesListViewController {
     /// Configures the cell
-    func configCell(for cell: ImagesListCell, index: IndexPath) {
+    private func configCell(for cell: ImagesListCell, index: IndexPath) {
         
         guard let image = UIImage(named: photosName[index.row]) else {
             return
@@ -86,7 +85,10 @@ extension ImagesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ImagesListCell.reuseIdentifier,
+            for: indexPath
+        )
                 
         guard let imageListCell = cell as? ImagesListCell else {
             print("Error creating imageListCell")

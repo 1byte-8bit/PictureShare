@@ -90,10 +90,12 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc private func didTapLogoutButton() {
-        
+        print("Exit")
     }
     
 }
+
+// MARK: Set constraints
 
 extension ProfileViewController {
     private func setConstraints() {

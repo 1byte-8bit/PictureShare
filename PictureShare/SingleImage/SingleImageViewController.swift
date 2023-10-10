@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SingleImageViewController: UIViewController {
+final class SingleImageViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -21,8 +21,8 @@ class SingleImageViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +33,29 @@ class SingleImageViewController: UIViewController {
         
     }
     
-    @IBAction func didTapBackButton(_ sender: UIButton) {
+    @IBAction private func didTapBackButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-    @IBAction func didTapShareButton(_ sender: UIButton) {
+    @IBAction private func didTapShareButton(_ sender: UIButton) {
         
         guard let image = image else { return }
         
         let activity = UIActivityViewController(
             activityItems: [image],
-            applicationActivities: nil)
+            applicationActivities: nil
+        )
         
-        present(activity, animated: true, completion: nil)
+        activity.overrideUserInterfaceStyle = .dark
+        
+        present(
+            activity,
+            animated: true,
+            completion: nil
+        )
     }
     
-    func setupScrollView() {
+    private func setupScrollView() {
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 1.25
     }
@@ -76,6 +83,8 @@ class SingleImageViewController: UIViewController {
     }
 
 }
+
+// MARK: Delegate
 
 extension SingleImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
