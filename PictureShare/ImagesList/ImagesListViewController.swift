@@ -34,16 +34,15 @@ final class ImagesListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == ShowSingleImageSegueIdentifier {
-                let viewController = segue.destination as! SingleImageViewController
-                let indexPath = sender as! IndexPath
-                let image = UIImage(named: photosName[indexPath.row])
-                viewController.image = image
-            } else {
-                super.prepare(for: segue, sender: sender)
-            }
+        if segue.identifier == ShowSingleImageSegueIdentifier {
+            let viewController = segue.destination as! SingleImageViewController
+            let indexPath = sender as! IndexPath
+            let image = UIImage(named: photosName[indexPath.row])
+            viewController.image = image
+        } else {
+            super.prepare(for: segue, sender: sender)
         }
-    
+    }
     
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -51,7 +50,6 @@ final class ImagesListViewController: UIViewController {
         formatter.timeStyle = .none
         return formatter
     }()
-    
 }
 
 // MARK: Configuring cell
@@ -77,7 +75,7 @@ extension ImagesListViewController {
     }
 }
 
-// MARK: Data Source
+// MARK: UITableViewDataSource
 
 extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,10 +97,9 @@ extension ImagesListViewController: UITableViewDataSource {
         
         return imageListCell
     }
-    
 }
 
-// MARK: Delegate
+// MARK: UITableViewDelegate
 
 extension ImagesListViewController: UITableViewDelegate {
     
@@ -130,7 +127,6 @@ extension ImagesListViewController: UITableViewDelegate {
         
         return cellHeight
     }
-    
 }
 
 

@@ -85,7 +85,7 @@
                             <constraint firstItem="tuq-Ef-LnL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="spf-4Z-4eD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="users" id="E14-T4-XXU"/>
+                    <tabBarItem key="tabBarItem" title="" image="Items" id="E14-T4-XXU"/>
                     <navigationItem key="navigationItem" id="hGb-le-c7j"/>
                     <connections>
                         <outlet property="tableView" destination="tuq-Ef-LnL" id="7kJ-iR-nbn"/>
@@ -193,10 +193,15 @@
                         <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" red="0.1019607843" green="0.1058823529" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tabBarAppearance>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="FVx-Tv-1gV" kind="relationship" relationship="viewControllers" id="ZAj-cy-pjm"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Dbk-73-w7T"/>
+                        <segue destination="FVx-Tv-1gV" kind="relationship" relationship="viewControllers" id="ZAj-cy-pjm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTc-5O-aoR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,10 +212,10 @@
     <resources>
         <image name="0" width="200" height="132"/>
         <image name="Backward" width="24" height="24"/>
+        <image name="Items" width="30" height="30"/>
         <image name="Sharing" width="50.333332061767578" height="50"/>
         <image name="likeActive" width="44" height="44"/>
         <image name="user" width="30" height="30"/>
-        <image name="users" width="30" height="30"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

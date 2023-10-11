@@ -9,96 +9,93 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
-    private let profileImageView = UIImageView()
-    private let nameLabel = UILabel()
-    private let loginNameLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let logoutButton = UIButton()
-    
-    override func viewDidLoad() {         
-        super.viewDidLoad()
+    private let profileImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.1058823529, blue: 0.1333333333, alpha: 1)
-        
-        setupProfileImage()
-        view.addSubview(profileImageView)
-        
-        setupNameLabel()
-        view.addSubview(nameLabel)
-        
-        setupLoginNameLabel()
-        view.addSubview(loginNameLabel)
-        
-        setupDescriptionLabel()
-        view.addSubview(descriptionLabel)
-        
-        setupLogoutButton()
-        view.addSubview(logoutButton)
-        
-        setConstraints()
-    }
-    
-    private func setupProfileImage() {
         let profileImage = UIImage(named: "Photo") ?? UIImage()
+        imageView.image = profileImage
         
-        profileImageView.image = profileImage
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-    }
+        return imageView
+    }()
     
-    private func setupNameLabel() {
-        nameLabel.text = "Екатерина Новикова"
-        nameLabel.font = nameLabel.font.withSize(23)
-        nameLabel.textColor = .white
+    private let nameLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Екатерина Новикова"
+        label.font = label.font.withSize(23)
+        label.textColor = .white
         
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
+        return label
+    }()
     
-    private func setupLoginNameLabel() {
-        loginNameLabel.text = "@ekaterina_nov"
-        loginNameLabel.font = loginNameLabel.font.withSize(13)
-        loginNameLabel.textColor = #colorLiteral(red: 0.6823529412, green: 0.6862745098, blue: 0.7058823529, alpha: 1)
+    private let loginNameLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "@ekaterina_nov"
+        label.font = label.font.withSize(13)
+        label.textColor = #colorLiteral(red: 0.6823529412, green: 0.6862745098, blue: 0.7058823529, alpha: 1)
+
+        return label
+    }()
+    
+    private let descriptionLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hello, world!"
+        label.font = label.font.withSize(13)
+        label.textColor = .white
         
-        loginNameLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
+        return label
+    }()
     
-    private func setupDescriptionLabel() {
-        descriptionLabel.text = "Hello, world!"
-        descriptionLabel.font = descriptionLabel.font.withSize(13)
-        descriptionLabel.textColor = .white
+    private lazy var logoutButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupLogoutButton() {
         let buttonImage = UIImage(named: "logout") ?? UIImage()
         
-        logoutButton.setImage(buttonImage, for: .normal)
-        logoutButton.imageEdgeInsets = UIEdgeInsets(
+        button.setImage(buttonImage, for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(
             top: 11,
             left: 16,
             bottom: 11,
             right: 6
         )
-        logoutButton.addTarget(
+        button.addTarget(
             self,
             action: #selector(Self.didTapLogoutButton),
             for: .touchUpInside
         )
+
+        return button
+    }()
+    
+    override func viewDidLoad() {         
+        super.viewDidLoad()
         
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.1058823529, blue: 0.1333333333, alpha: 1)
+        addSubViews()
+        applyConstraints()
+    }
+    
+    private func addSubViews() {
+        view.addSubview(profileImageView)
+        view.addSubview(nameLabel)
+        view.addSubview(loginNameLabel)
+        view.addSubview(descriptionLabel)
+        view.addSubview(logoutButton)
     }
     
     @objc private func didTapLogoutButton() {
         print("Exit")
     }
-    
 }
 
-// MARK: Set constraints
+// MARK: applyConstraints
 
 extension ProfileViewController {
-    private func setConstraints() {
+    private func applyConstraints() {
         NSLayoutConstraint.activate(
             [
                 profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
