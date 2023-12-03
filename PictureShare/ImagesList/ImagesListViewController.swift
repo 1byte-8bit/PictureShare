@@ -16,16 +16,11 @@ final class ImagesListViewController: UIViewController {
         return .lightContent
     }
     
+    private let ShowSingleImageSegueIdentifier = "ShowSingleImage"
+    
     @IBOutlet private var tableView: UITableView!
     
     private let photosName: [String] = Array(0..<20).map {"\($0)"}
-    
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +32,31 @@ final class ImagesListViewController: UIViewController {
             right: 0
         )
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ShowSingleImageSegueIdentifier {
+            let viewController = segue.destination as! SingleImageViewController
+            let indexPath = sender as! IndexPath
+            let image = UIImage(named: photosName[indexPath.row])
+            viewController.image = image
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
+    }
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }()
 }
 
 // MARK: Configuring cell
 
 extension ImagesListViewController {
     /// Configures the cell
-    func configCell(for cell: ImagesListCell, index: IndexPath) {
+    private func configCell(for cell: ImagesListCell, index: IndexPath) {
         
         guard let image = UIImage(named: photosName[index.row]) else {
             return
@@ -63,7 +75,7 @@ extension ImagesListViewController {
     }
 }
 
-// MARK: Data Source
+// MARK: UITableViewDataSource
 
 extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,7 +83,10 @@ extension ImagesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ImagesListCell.reuseIdentifier,
+            for: indexPath
+        )
                 
         guard let imageListCell = cell as? ImagesListCell else {
             print("Error creating imageListCell")
@@ -82,14 +97,15 @@ extension ImagesListViewController: UITableViewDataSource {
         
         return imageListCell
     }
-    
 }
 
-// MARK: Delegate
+// MARK: UITableViewDelegate
 
 extension ImagesListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: ShowSingleImageSegueIdentifier, sender: indexPath)
+    }
     
     /// Configures the cell according to the image height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,4 +128,5 @@ extension ImagesListViewController: UITableViewDelegate {
         return cellHeight
     }
 }
+
 
