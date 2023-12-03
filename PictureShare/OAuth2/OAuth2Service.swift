@@ -89,7 +89,7 @@ extension OAuth2Service {
     }
 }
 
-// MARK: - HTTP Request
+// MARK: - HTTP Request extension
 
 extension URLRequest {
     
@@ -104,12 +104,15 @@ extension URLRequest {
     }
 }
 
-// MARK: - Network Connection
+// MARK: - Network Error
+
 enum NetworkError: Error {
     case httpStatusCode(Int)
     case urlRequestError(Error)
     case urlSessionError
 }
+
+// MARK: - URLSession extension
 
 extension URLSession {
     
@@ -141,6 +144,7 @@ extension URLSession {
         })
         
         task.resume()
+        
         return task
     }
 }

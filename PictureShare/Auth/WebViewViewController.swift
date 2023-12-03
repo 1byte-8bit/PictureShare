@@ -32,6 +32,7 @@ final class WebViewViewController: UIViewController {
         super.viewDidLoad()
         
         webView.navigationDelegate = self
+        
         loadWebView()
         updateProgress()
     }
@@ -52,7 +53,6 @@ extension WebViewViewController: WKNavigationDelegate {
         decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
             
         if let code = code(from: navigationAction) {
-            print("Code: \(code)")
             delegate?.webViewViewController(self, didAuthenticateWithCode: code)
             decisionHandler(.cancel, preferences)
         }

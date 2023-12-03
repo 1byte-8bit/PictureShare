@@ -185,7 +185,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="tXJ-zO-n1e">
             <objects>
-                <tabBarController id="J5q-p6-Vqn" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" id="J5q-p6-Vqn" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FUB-t5-LKU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -217,7 +217,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-fC-6fg">
-                                <rect key="frame" x="16" y="724" width="382" height="48"/>
+                                <rect key="frame" x="16" y="758" width="382" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="wmi-X9-9O4"/>
@@ -317,10 +317,10 @@
             </objects>
             <point key="canvasLocation" x="673.95348837209303" y="-1141.4163090128757"/>
         </scene>
-        <!--Splash View Controller-->
+        <!--Unsplash-->
         <scene sceneID="Jg9-QL-h9U">
             <objects>
-                <viewController id="DJ6-AY-lgg" customClass="SplashViewController" customModule="PictureShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DJ6-AY-lgg" userLabel="Unsplash" customClass="SplashViewController" customModule="PictureShare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NA5-ZV-ccy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,18 +336,22 @@
                             <constraint firstItem="fxs-GW-xuV" firstAttribute="centerX" secondItem="had-ah-gek" secondAttribute="centerX" id="hjQ-nE-UKN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="8bF-gU-dgf" kind="presentation" identifier="ShowAuthenticationScreen" modalPresentationStyle="fullScreen" id="7eN-mM-DtX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKG-Vr-8RB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2242" y="-569"/>
+            <point key="canvasLocation" x="-2362" y="-410"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mfn-pM-STp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8bF-gU-dgf" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YYJ-Yl-RAT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fA4-Hu-sB0">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -357,7 +361,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnZ-GJ-OYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="-1141"/>
+            <point key="canvasLocation" x="-1220" y="-1141"/>
         </scene>
     </scenes>
     <resources>
