@@ -35,21 +35,15 @@ final class ImagesListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ShowSingleImageSegueIdentifier {
-            let viewController = segue.destination as! SingleImageViewController
-            let indexPath = sender as! IndexPath
-            let image = UIImage(named: photosName[indexPath.row])
-            viewController.image = image
+            if let viewController = segue.destination as? SingleImageViewController,
+               let indexPath = sender as? IndexPath {
+                    let image = UIImage(named: photosName[indexPath.row])
+                    viewController.image = image
+            }
         } else {
             super.prepare(for: segue, sender: sender)
         }
     }
-    
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }()
 }
 
 // MARK: Configuring cell
@@ -58,17 +52,16 @@ extension ImagesListViewController {
     /// Configures the cell
     private func configCell(for cell: ImagesListCell, index: IndexPath) {
         
-        guard let image = UIImage(named: photosName[index.row]) else {
-            return
-        }
-        cell.cellImage.image = image
-        
-        let date = dateFormatter.string(from: Date())
-        cell.dateLabel.text = date
+        guard let image = UIImage(named: photosName[index.row]) else { return }
         
         let isLike = index.row % 2 == 0
         let likeImage = isLike ? UIImage(named: "likeActive") : UIImage(named: "likeNoActive")
-        cell.likeButton.setImage(likeImage, for: .normal)
+        
+        let date = dateFormatter.string(from: Date())
+        
+        cell.setCellData(image: image, 
+                         likeButtonImage: likeImage,
+                         dateLabelText: date)
         
         cell.layer.cornerRadius = 17
         cell.layer.masksToBounds = true
