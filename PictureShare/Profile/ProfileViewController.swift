@@ -9,6 +9,8 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    private let profileService = ProfileService.shared
+    
     private let profileImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -75,6 +77,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = #colorLiteral(red: 0.1019607843, green: 0.1058823529, blue: 0.1333333333, alpha: 1)
+        applyUserData()
         addSubViews()
         applyConstraints()
     }
@@ -85,6 +88,12 @@ final class ProfileViewController: UIViewController {
         view.addSubview(loginNameLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(logoutButton)
+    }
+    
+    private func applyUserData() {
+        self.nameLabel.text = profileService.profile?.name
+        self.loginNameLabel.text = profileService.profile?.loginName
+        self.descriptionLabel.text = profileService.profile?.bio
     }
     
     @objc private func didTapLogoutButton() {
