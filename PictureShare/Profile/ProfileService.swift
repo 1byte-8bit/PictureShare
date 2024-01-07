@@ -8,7 +8,7 @@
 import Foundation
 
 final class ProfileService {
-    
+    // Singleton
     static let shared = ProfileService()
     
     private let urlSession = URLSession.shared
@@ -37,6 +37,16 @@ final class ProfileService {
             switch result {
             case .success(let profileResult):
                 self.profile = self.convertProfileData(from: profileResult)
+                
+                if let username = self.profile?.username {
+                    print(username)
+                    print(token)
+                    ProfileImageService.shared.fetchProfileImageURL(
+                        username: username,
+                        token: token
+                    ) { _ in }
+                }
+                
                 self.task = nil
             case .failure(let error):
                 completion(.failure(error))

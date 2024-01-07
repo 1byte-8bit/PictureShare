@@ -11,6 +11,8 @@ final class ProfileViewController: UIViewController {
     
     private let profileService = ProfileService.shared
     
+    private var profileImageServiceObserver: NSObjectProtocol?
+    
     private let profileImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +82,17 @@ final class ProfileViewController: UIViewController {
         applyUserData()
         addSubViews()
         applyConstraints()
+        
+        profileImageServiceObserver = NotificationCenter.default
+                    .addObserver(
+                        forName: ProfileImageService.DidChangeNotification,
+                        object: nil,
+                        queue: .main
+                    ) { [weak self] _ in
+                        guard let self = self else { return }
+                        self.updateAvatar()
+                    }
+        updateAvatar()
     }
     
     private func addSubViews() {
@@ -95,6 +108,16 @@ final class ProfileViewController: UIViewController {
         self.loginNameLabel.text = profileService.profile?.loginName
         self.descriptionLabel.text = profileService.profile?.bio
     }
+    
+    private func updateAvatar() {
+        print("Update Avatar")
+            guard
+                let profileImageURL = ProfileImageService.shared.avatarURL,
+                let url = URL(string: profileImageURL)
+            else { return }
+        print("URL: \(url)")
+            // TODO [Sprint 11] Обновить аватар, используя Kingfisher
+        }
     
     @objc private func didTapLogoutButton() {
         print("Exit")
